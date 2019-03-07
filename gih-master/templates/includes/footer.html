@@ -1,0 +1,231 @@
+<head>
+
+  <style>
+    .modal-locationfinder {
+    color: #636363;
+    width: 500px;
+    height: 100%;
+    }
+    .modal-locationfinder .modal-content {
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+    }
+    .modal-locationfinder .modal-header {
+    border-bottom: none;
+        position: relative;
+        justify-content: center;
+    }
+    .modal-locationfinder h4 {
+    text-align: center;
+    font-size: 26px;
+    margin: 30px 0 -15px;
+    }
+    .modal-locationfinder .form-control:focus {
+    border-color: #f04f01;
+    }
+    .modal-locationfinder .form-control, .modal-locationfinder .btn {
+    min-height: 40px;
+    border-radius: 3px;
+    }
+    .modal-locationfinder .close {
+        position: absolute;
+    top: -5px;
+    right: -5px;
+    }
+    .modal-locationfinder .modal-footer {
+    background: #ecf0f1;
+    border-color: #dee4e7;
+    text-align: center;
+    justify-content: center;
+    margin: 0 -20px -20px;
+    border-radius: 5px;
+    font-size: 13px;
+    }
+    .modal-locationfinder .modal-footer a {
+    color: #999;
+    }
+    .modal-locationfinder .avatar {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: -70px;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    z-index: 9;
+    padding: 15px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    }
+    .modal-locationfinder .avatar img {
+    width: 100%;
+    }
+    .modal-locationfinder.modal-dialog {
+    margin-top: 80px;
+    }
+    .modal-locationfinder .btn {
+    color: #fff;
+    border-radius: 4px;
+    background: #f04f01;
+    text-decoration: none;
+    transition: all 0.4s;
+    line-height: normal;
+    border: none;
+    width:100%;
+    }
+    .modal-locationfinder .btn:hover, .modal-locationfinder .btn:focus {
+      background: #fff;
+      color: #000;
+      border: 1px solid #000;
+      outline: none;
+    }
+    .trigger-btn {
+    display: inline-block;
+    }
+  </style>
+  </head>
+  <footer id="footer" class="block block-bg-grey-dark" data-block-bg-img="static/img/bg_footer-map.png" data-stellar-background-ratio="0.4">
+      <div class="container">
+  
+        <div class="row" id="contact">
+  
+          <div class="col-md-3">
+            <address>
+                <strong>Aone Ceramics Pvt. Ltd.</strong>
+                <br>
+                <i class="fa fa-map-pin fa-fw text-primary"></i> Lakhdhirpur Road, Morbi
+                <br>
+                <i class="fa fa-phone fa-fw text-primary"></i> 7698806695
+                <br>
+                <i class="fa fa-envelope-o fa-fw text-primary"></i> aoneceramics@gmail.com
+                <br>
+              </address>
+              <h4 class="text-uppercase">
+                  Follow Us On:
+                </h4>
+              <div class="social-media social-media-inline">
+                <!--@todo: replace with company social media details-->
+                <a href="#"><i class="fa fa-facebook fa-fw"></i></a>
+                <a href="#"><i class="fa fa-twitter fa-fw"></i></a>
+                <a href="#"><i class="fa fa-google-plus fa-fw"></i></a>
+              </div>
+              <div class="container">
+                <button type="button" class="btn btn-primary" class="text-uppercase" href="#locationfinder" class="trigger-btn" data-toggle="modal" name="button">Store Finder</button>
+                </div>
+          </div>
+  
+          <div class="col-md-4">
+            <h4 class="text-uppercase">
+                Contact Us
+              </h4>
+            <div class="form">
+              <div id="sendmessage">Your message has been sent. Thank you!</div>
+              <div id="errormessage"></div>
+              <form action="" method="post" role="form" class="contactForm">
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                  <div class="validation"></div>
+                </div>
+                <div class="text-center"><button type="submit">Send Message</button></div>
+              </form>
+            </div>
+          </div>
+  
+          <div class="col-md-5">
+              <div class="card">
+                <div class="card-body">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.8663642421816!2d70.90130661472107!3d22.807415130058818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39598dd9d7986743%3A0xbed20a9bdae9d7c9!2sAone+Ceramics+Pvt+Ltd!5e0!3m2!1sen!2sin!4v1550664853847" width="100%" height="320" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+                </div>
+          </div>
+  
+        </div>
+  
+        <div class="row subfooter">
+          <!--@todo: replace with company copyright details-->
+          <div class="col-md-7">
+            <p>Copyright © Aone Ceramic</p>
+          </div>
+  
+        </div>
+  
+        <a href="#top" class="scrolltop">Top</a>
+  
+      </div>
+  
+  
+      <div id="locationfinder" class="modal fade">
+      <div class="modal-dialog modal-locationfinder">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="avatar">
+            <img src="static/img/location.png" alt="Avatar">
+          </div>
+          <h4 class="modal-title">Store Finder</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  
+  
+        <div class="modal-body">
+          <form action="" method="post">
+            <div class="form-group">
+               <label class="col-md-4 control-label">Select Your City:</label>
+               <div class="col-md-8 inputGroupContainer">
+                  <div class="input-group">
+                     <select class="selectpicker form-control">
+                        <option selected>-select city-</option>
+                        
+                        <option>Rajkot</option>
+                       
+                     </select>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block locationfinder-btn" style="width:120px; margin-top:10px;">Show me </button>
+                  </div>
+               </div>
+            </div>
+          </form>
+        </div>
+        </div>
+        <div class="modal-footer">
+          <table>
+            <tr>
+              <td>Strore Name:
+              </td>
+              <td id="sname">
+              </td>
+                </tr>
+            <tr>
+                <td>Address:
+                </td>
+                <td id="sadd">
+                </td>
+            </tr>
+            <tr>
+                <td>Phone no:
+                </td>
+                <td id="spno">
+                </td>
+            </tr>
+  
+          </table>
+        </div>
+      </div>
+      </div>
+  
+  
+  
+    </footer>
+  

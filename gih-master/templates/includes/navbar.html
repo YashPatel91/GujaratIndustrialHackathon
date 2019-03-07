@@ -1,0 +1,83 @@
+<div id="navigation" class="wrapper">
+
+    <!--Header & navbar-branding region-->
+    <div class="header">
+      <div class="header-inner container">
+        <div class="row">
+          <div class="col-md-8">
+            <!--navbar-branding/logo - hidden image tag & site name so things like Facebook to pick up, actual logo set via CSS for flexibility -->
+            <a class="navbar-brand" href="{{url_for('index')}}" title="Home">
+              <p class="text-primary">
+                AONE CERAMICS
+              </p>
+            </a>
+            <div class="navbar-slogan">
+              Reflects
+              <br> Your Style...
+            </div>
+          </div>
+          <!--header rightside-->
+          <div class="col-md-4">
+            <ul class="list-inline user-menu pull-right">
+              {% if session %}
+              <li class="user-register"><i class="fa fa-edit text-primary "></i> <a href="{{url_for('updpassword')}}" class="text-uppercase">Update Password</a></li>
+              <li class="user-register"><i class="fa fa-edit text-primary "></i> <a href="{{url_for('logout')}}" class="text-uppercase">Log Out</a></li>  
+              {% else %}
+              <li class="user-register"><i class="fa fa-edit text-primary "></i> <a href="{{url_for('signup')}}" class="text-uppercase">Register</a></li>
+              <li class="user-login"><i class="fa fa-sign-in text-primary"></i> <a href="{{url_for('login')}}" class="text-uppercase">Login</a></li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="navbar navbar-default">
+        <!--mobile collapse menu button-->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+
+        <!--everything within this div is collapsed on mobile-->
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav" id="main-menu">
+            <li class="icon-link">
+              <a href="{{url_for('index')}}"><i class="fa fa-home"></i></a>
+            </li>
+
+            <li><a href="{{url_for('about')}}">About us</a></li>
+            <li class="dropdown dropdown-mm">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
+              <!-- Dropdown Menu -->
+              <ul class="dropdown-menu dropdown-menu-mm dropdown-menu-persist">
+                <li class="row">
+                  <ul class="col-md-6">
+                    <li class="dropdown-header">Local</li>
+                    <li><a href="product1.html">250x375mm(10x15)</a></li>
+                      <li><a href="#">300x300mm(12x12) MATCHING FLOOR</a></li>
+                    <li><a href="#">300x450mm(12x18)</a></li>
+                  </ul>
+                  <ul class="col-md-6">
+                    <li class="dropdown-header">International</li>
+                    <li><a href="#">250x375mm(10x15)</a></li>
+                    <li><a href="#">250x400mm(10x16)</a></li>
+                    <li><a href="#">300x300mm(12x12) MATCHING FLOOR</a></li>
+                    <li><a href="#">300x450mm(12x18)</a></li>
+                    <li><a href="#">300x600mm(12x24)</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="downloads.html">Downloads</a></li>
+            {%if session.role == 'admin'%}
+            <li><a href="{{url_for('adminpanel')}}">Admin Panel</a></li>
+            {%else%}
+            <li><a href="{{url_for('inquiry')}}">Inquiry</a></li>
+            {%endif%}
+            <li><a href="{{url_for('store')}}">Find Store</a></li>
+            <li><a href="{{url_for('quotation')}}">Quotation</a></li>
+            <li><a href="{{url_for('review')}}">review</a></li>
+          </ul>
+        </div>
+        <!--/.navbar-collapse -->
+      </div>
+    </div>
+  </div>

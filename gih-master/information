@@ -1,0 +1,14 @@
+for issues with pip, try
+python3 -m pip install --user --upgrade pip
+
+MySQL:
+
+create table users(user_id int auto_increment primary key, username varchar(30) not null,
+                   password mediumblob not null, email varchar(30) not null,
+                   phone int not null, user_role varchar(20) default 'user');
+
+create table product_data(pid int auto_increment primary key, product_number int unique not null,
+                            product_type varchar(30) not null, product_size varchar(30) not null,
+                            design_type varchar(50) not null, image_name text not null);
+create table ware(sid int auto_increment primary key,storname varchar(30),addr varchar(100),
+city varchar(30),pin varchar(10),phonno varchar(10))

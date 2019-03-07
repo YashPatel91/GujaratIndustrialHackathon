@@ -1,0 +1,54 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    {{super()}}
+{% endblock %}
+{% block nav %}
+    {{ super() }}
+{% endblock %}
+
+{% block carou%}
+
+{% endblock %}
+
+
+{% block about %}
+<div class="container">
+    <h2><b>Review</b></h2>
+    {% if msg %}
+      <h3>{{msg}}</h3>
+      {% endif %}
+
+      <form method="POST" action="{{url_for('review')}}" enctype="multipart/form-data">
+        <div class="input-group"><input id="tno" name="add" placeholder="Enter your review here" class="form-control" required="true" value="" type="text"></div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+      
+</div>
+  </div>
+  <script>
+  $(document).ready(function(){
+    $(".nav-tabs a").click(function(){
+      $(this).tab('show');
+    });
+  });
+  </script>
+{% endblock %}
+
+{% block slider %}
+   {{ data }}
+{% endblock %}
+
+
+{% block footer %}
+{{ super() }}
+{% endblock %}

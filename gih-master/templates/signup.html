@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    {{super()}}
+{% endblock %}
+{% block nav %}
+    {{ super() }}
+{% endblock %}
+
+{% block carou%}
+
+{% endblock %}
+
+
+{% block about %}
+    <div class="container" align=center>
+        <div class="jumbotron">
+            <h1>Sign-up page</h1><br>
+                {% if msg %}
+                    <h3>{{msg}}</h3>
+                {% endif %}
+                <form method='post' action="{{url_for('signup')}}">
+                    <label for="un">Username</label>
+                    <input type="text" name="un" value=""><br>
+                    <label for="pw">Password:</label>
+                    <input type="password" name="pw" value=""><br>
+                    <label for="rpw">Reenter Password:</label>
+                    <input type="password" name="rpw" value=""><br>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" value=""><br>
+                    <label for="phno">Phone:</label>
+                    <input type="Phone" name="phno" value=""><br>
+                    <input type="submit" name="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block slider %}
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}

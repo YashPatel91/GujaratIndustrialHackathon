@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+      <meta content="" name="keywords">
+      <meta content="" name="description">
+
+      <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+      <meta property="og:title" content="">
+      <meta property="og:image" content="">
+      <meta property="og:url" content="">
+      <meta property="og:site_name" content="">
+      <meta property="og:description" content="">
+
+      <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+      <meta name="twitter:card" content="summary">
+      <meta name="twitter:site" content="">
+      <meta name="twitter:title" content="">
+      <meta name="twitter:description" content="">
+      <meta name="twitter:image" content="">
+
+    <link rel="shortcut icon" href="static/img/icons/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="static/img/icons/114x114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="static/img/icons/72x72.png">
+    <link rel="apple-touch-icon-precomposed" href="static/img/icons/default.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900" rel="stylesheet">
+      <script src="https://unpkg.com/jspdf"></script>
+      <script src="https://unpkg.com/jspdf-autotable"></script>
+      <!-- Bootstrap CSS File -->
+      <link href="static/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+      <!-- Libraries CSS Files -->
+      <link href="static/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+      <link href="static/lib/owlcarousel/owl.carousel.min.css" rel="stylesheet">
+      <link href="static/lib/owlcarousel/owl.theme.min.css" rel="stylesheet">
+      <link href="static/lib/owlcarousel/owl.transitions.min.css" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      <!-- Main Stylesheet File -->
+      <link href="static/css/style.css" rel="stylesheet">
+
+      <!--Your custom colour override - predefined colours are: colour-blue.css, colour-green.css, colour-lavander.css, orange is default-->
+      <link href="#" id="colour-scheme" rel="stylesheet">
+      {% block head %}
+      {% endblock %}
+</head>
+<body class="page-index has-hero">
+   <div class="background-wrapper" class="buildings" data-stellar-background-ratio="0.1"
+   style="background-image: url(/static/img/backgrounds/buildings.png);">
+      {% block nav%}
+         {% include 'includes/navbar.html' %}
+      {% endblock %}
+      {% block carou %}
+         {% include 'includes/carousel.html' %}
+      {% endblock %}
+   </div>
+   <hr style="border: 2px solid #ff5821; margin:0px; padding: 0px; ">
+      {% block about %}
+         {% include 'includes/aboutcontent.html' %}
+      {% endblock %}
+      {% block slider %}   
+         {% include 'includes/slider.html'%} 
+      {% endblock %}
+      {% block store %}
+
+      {% endblock %}
+      {% block quotation %}
+
+      {% endblock %}
+
+      <hr style="border: 2px solid #ff5821; margin:0px; padding: 0px; ">
+      {% block footer %}
+          {% include 'includes/footer.html'%}
+      {% endblock %}
+   
+      <div>
+         {% block js %}
+         <script src="static/lib/jquery/jquery.min.js"></script>
+         <script src="static/lib/bootstrap/js/bootstrap.min.js"></script>
+         <script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
+         <script src="static/lib/stellar/stellar.min.js"></script>
+         <script src="static/lib/waypoints/waypoints.min.js"></script>
+         <script src="static/lib/counterup/counterup.min.js"></script>
+         <script src="static/contactform/contactform.js"></script>
+       
+         <!-- Template Specisifc Custom Javascript File -->
+         <script src="static/js/custom.js"></script>
+       
+         <!--Custom scripts demo background & colour switcher - OPTIONAL -->
+         <script src="static/js/color-switcher.js"></script>
+       
+         <!--Contactform script -->
+         <script src="static/contactform/contactform.js"></script>
+         {% endblock %}
+      </div>
+</div>
+   
+

@@ -1,0 +1,242 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    {{super()}}
+{% endblock %}
+{% block nav %}
+    {{ super() }}
+{% endblock %}
+
+{% block carou%}
+
+{% endblock %}
+
+
+{% block about %}
+<div class="container">
+    <h2><b>Admin Panel</b></h2>
+    {% if msg %}
+      <h3>{{msg}}</h3>
+      {% endif %}
+    <ul class="nav nav-tabs">
+      <li><a data-toggle="tab" aria-expanded="true" href="#menu1">Add Products</a></li>
+      <li><a data-toggle="tab" href="#menu2">Remove Products</a></li>
+      <li><a data-toggle="tab" href="#menu3">Stores</a></li>
+      <li><a data-toggle="tab" href="#menu4">Remove store</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="menu1" class="tab-pane fade active">
+        <h3><b>Add Product</b></h3>
+        <div class="row d-flex justify-content-center">
+          <div class="col-6 col-md-6">
+        <form class="well form-horizontal" method="POST" action="{{url_for('addproduct')}}" enctype="multipart/form-data">
+           <fieldset>
+              <div class="form-group">
+                 <label class="col-md-4 control-label">Tiles no.</label>
+                 <div class="col-md-8 inputGroupContainer">
+                    <div class="input-group"><input id="tno" name="tno" placeholder="Enter Product no." class="form-control" required="true" value="" type="text"></div>
+                 </div>
+              </div>
+              
+              <div class="form-group">
+                 <label class="col-md-4 control-label">Product Type</label>
+                 <div class="col-md-8 inputGroupContainer">
+                    <div class="input-group">
+                       <select class="selectpicker form-control" name="ptype">
+                          <option selected>Local</option>
+                          <option>International</option>
+                       </select>
+                    </div>
+                 </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Select Size</label>
+                <div class="col-md-8 inputGroupContainer">
+                   <div class="input-group">
+                      <select class="selectpicker form-control" name="prosize">
+                         <option>250x375 mm(10x15)</option>
+                         <option>300x300 mm(12x12)</option>
+                         <option>300x450 mm(12x18)</option>
+                     </select>
+                   </div>
+                </div>
+             </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Design Type</label>
+                <div class="col-md-8 inputGroupContainer">
+                   <div class="input-group">
+                      <select class="selectpicker form-control" name="design">
+                         <option selected>Anti Skid Floor</option>
+                         <option>Glossy Series</option>
+                         <option>Matte Series</option>
+                         <option>Glossy Elevation Series</option>
+                      </select>
+                   </div>
+                </div>
+             </div>
+             <div class="form-group">
+                 <label class="col-md-4 control-label">Product Image</label>
+                 <div class="col-md-8 inputGroupContainer">
+                    <div class="input-group"><input id="image" name="imgfile" class="form-control" required="true" value="" type="file"></div>
+                 </div>
+            </div>
+           </fieldset>
+           <button type="submit" class="btn btn-primary">Add product</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+      <!--tab2  -->
+      <div id="menu2" class="tab-pane fade">
+            <h3><b>Remove Product</b></h3>
+            <div class="row">
+              <div class="col-6 col-md-6">
+            <form class="well form-horizontal">
+               <fieldset>
+                 <div class="form-group">
+                    <label class="col-md-4 control-label">Tiles no.</label>
+                    <div class="col-md-8 inputGroupContainer">
+                       <div class="input-group"><input id="tno" name="tno" placeholder="Enter Product no." class="form-control" required="true" value="" type="text"></div>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-4 control-label">Fetch Details</label>
+                        <div class="col-md-8 inputGroupContainer">
+                        <button type="submit" class="btn btn-primary" name="button">Fetch details</button>
+                      </div>
+                  </div>
+    
+                 <div class="form-group">
+                 <div class="container">
+                   <table>
+                     <tr colspan="2">
+                        <td>Product Details</td>
+                       <tr>
+                     <tr>
+                       <td>Type: </td>
+                       <td id="#Ptype"></td>
+                       </tr>
+                       <tr>
+                         <td>Size: </td>
+                         <td id="#Psize"></td>
+                         </tr>
+                         <tr>
+                           <td>DesignType: </td>
+                           <td id="#Pdtype"></td>
+                           </tr>
+                          <tr colspan="2">
+                              <td id="pimage"></td>
+                            </tr>
+                     </table>
+                   </div>
+                   </div>
+                   <div class="form-group">
+                       <div class="col-md-8 inputGroupContainer">
+                     <button type="button" class="btn btn-primary" name="button">Remove Product</button>
+                     </div>
+                     </div>
+               </fieldset>
+            </form>
+          </div>
+        </div>
+    </div>
+    
+    <!-- tab 3 -->
+
+    <div id="menu3" class="tab-pane fade">
+      <h3><b>Add Store</b></h3>
+      <div class="row">
+        <div class="col-6 col-md-6">
+          <form class="well form-horizontal" method="POST" action="{{url_for('addstore')}}" enctype="multipart/form-data">
+         <fieldset>
+           <div class="form-group">
+              <label class="col-md-4 control-label">Store Name:</label>
+              <div class="col-md-8 inputGroupContainer">
+                 <div class="input-group"><input id="stname" name="stname" placeholder="Enter Store name" class="form-control" required="true" value="" type="text"></div>
+              </div>
+              </div>
+              <div class="form-group">
+                 <label class="col-md-4 control-label">Address:</label>
+                 <div class="col-md-8 inputGroupContainer">
+                    <div class="input-group"><input id="stadd" name="stadd" placeholder="Enter Store address" class="form-control" required="true" value="" type="text"></div>
+                 </div>
+                 </div>
+                 <div class="form-group">
+                    <label class="col-md-4 control-label">City:</label>
+                    <div class="col-md-8 inputGroupContainer">
+                       <div class="input-group"><input id="stcity" name="stcity" placeholder="Enter city" class="form-control" required="true" value="" type="text"></div>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                       <label class="col-md-4 control-label">Pincode:</label>
+                       <div class="col-md-8 inputGroupContainer">
+                          <div class="input-group"><input id="stpin" name="stpin" placeholder="pincode" class="form-control" required="true" value="" type="text"></div>
+                       </div>
+                       </div>
+                       <div class="form-group">
+                          <label class="col-md-4 control-label">Phone No.:</label>
+                          <div class="col-md-8 inputGroupContainer">
+                             <div class="input-group"><input id="stpno" name="stpno" placeholder="Enter phone no." class="form-control" required="true" value="" type="text"></div>
+                          </div>
+                          </div>
+                          <div class="form-group text-right">
+                              <div class="col-md-8 inputGroupContainer">
+                            <button type="submit" class="btn btn-primary" name="button">Submit</button>
+                            </div>
+                            </div>
+          </fieldset>
+          </form>
+         </div>
+        </div>
+      </div>
+
+      <div id="menu4" class="tab-pane fade">
+        <h3><b>Remove Store</b></h3>
+        <div class="row">
+          <div class="col-6 col-md-6">
+            <form class="well form-horizontal" method="POST" action="{{url_for('removestore')}}" enctype="multipart/form-data">
+           <fieldset>
+             <div class="form-group">
+                <label class="col-md-4 control-label">Store Name:</label>
+                <div class="col-md-8 inputGroupContainer">
+                   <div class="input-group"><input id="stname" name="stname" placeholder="Enter Store name" class="form-control" required="true" value="" type="text"></div>
+                </div>
+                </div>
+                  <div class="form-group text-right">
+                      <div class="col-md-8 inputGroupContainer">
+                        <button type="Submit" class="btn btn-primary" name="button">Remove it </button>
+                    </div>
+                  </div>
+           </fieldset>
+        </form>
+      </div>
+      </div>
+      </div>
+
+      <!-- tab 3 -->
+
+      <div id="menu3" class="tab-pane fade">
+        <h3><b>Remove Product</b></h3>
+
+        </div>
+</div>
+  </div>
+  <script>
+  $(document).ready(function(){
+    $(".nav-tabs a").click(function(){
+      $(this).tab('show');
+    });
+  });
+  </script>
+{% endblock %}
+
+{% block slider %}
+   {{ data }}
+{% endblock %}
+
+
+{% block footer %}
+{{ super() }}
+{% endblock %}

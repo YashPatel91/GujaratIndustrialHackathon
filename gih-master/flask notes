@@ -1,0 +1,77 @@
+Setting up the environment
+install python3 version of pip
+-sudo apt install python3-pip
+install virtualenvironment as
+-pip install virtualenv
+create a new directory where you want the virtualenvironment.
+open up terminal inside that path.
+create a new virtualenvironment
+-virtualenv name
+start virtualenvironment
+-source name/bin/activate
+    install flask for python3
+    sudo pip3 install flask
+end
+-deactivate
+
+Install mysql-connector for python3(via pip3)
+Install flask_mysqldb(via pip3)
+Configure the application with database
+app.config[...], where ... is MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD and MYSQL_DATABASE
+for the above sensitive information, create a seperate config file with .yaml extension.
+So install PYyaml module(via pip3) and inside that file, store all four config variables.
+
+Connect to MySQL
+mysql -u root -p
+
+Start the application
+Initialize the virtual environment
+    1.source myproject/bin/activate
+Get inside the project folder
+    2. cd Files
+Start the app
+    3. python app.py
+
+
+dynamic routes
+pass in parameter within <> in app.route
+and the same in the underdefined function
+
+debug mode
+app.run(debug=True)
+
+Templates
+flask looks for html files inside the templates directory.
+
+Jinja templating
+used to insert our python variables directly into our html files.
+{{variable}}
+for using for loop and if
+{{%here goes the logical part%}}
+
+for loop
+{{%for var in obj%}}
+    ...
+{{% endfor %}}
+if statement
+{{ %if condition% }}
+    ...
+{{ %else% }}
+{{ %endif% }}
+
+Inheritance of templates
+{% extend 'name.html'%}
+
+{% block content%}
+    ...
+{% endblock%}
+
+Using url_for()
+helps in connecting multiple template files
+
+{{ url_for('function_name') }}
+
+for giving links to static files, use url_for('folder',filename='name')
+
+Forms in Flask
+wtforms and flask_wtf

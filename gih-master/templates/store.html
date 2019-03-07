@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block nav%}
+    {{ super() }}
+{% endblock %}
+
+{% block carou%}
+
+{% endblock %}
+
+{% block adminnavbar%}
+
+{% endblock %}
+
+{% block about %}
+
+{% endblock %}
+
+{% block product1 %}
+
+{% endblock %}
+
+{% block store%}
+<div id="content">
+    <div class="container">
+      <h1 style="font-weight:700;">Find Store near you</h1>
+      <div class="row">
+      <div class="col-sm-4">
+          {% if data %}
+      <form method="POST" action="{{url_for('store')}}" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="city">Select city</label>
+            <select class="form-control" id="stname" name='stname'>
+              
+              {% for row in data %}
+              <option value="{{row[0]}}">{{row[0]}}</option>
+              {% endfor%}
+              
+              <!--<option></option>-->
+              </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        {% endif%}
+      </form> 
+      </div>
+      </div>
+      <br>
+      {% if details %}
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Store Name</th>
+            <th>Address</th>
+            <th>Phone No:</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in details %}
+          <tr>
+            <td>{{row[1]}}</td>
+            <td>{{row[2]}}</td>
+            <td>{{row[3]}}</td>
+          </tr>
+          {% endfor%}
+        </tbody>
+      </table>
+      {% endif%}
+</div>
+</div>
+{% endblock%}
+
+{% block download %}
+
+{% endblock %}
+
+{% block inquiry %}
+
+{% endblock %}
+
+{% block slider %}
+
+{% endblock %}
+
+{% block adminpanel %}
+
+{% endblock %}
+
+{% block footer %}
+{{ super() }}
+{% endblock %}
+
+{% block js %}
+    {{ super() }}
+{% endblock %}

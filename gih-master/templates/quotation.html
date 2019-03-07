@@ -1,0 +1,202 @@
+{% extends "layout.html" %}
+
+{% block nav%}
+    {{ super() }}
+{% endblock %}
+
+{% block carou%}
+
+{% endblock %}
+
+{% block adminnavbar%}
+<div id="navigation" class="wrapper">
+  <!--Header & navbar-branding region-->
+  <div class="header">
+    <div class="header-inner container">
+      <div class="row">
+        <div class="col-md-8">
+          <!--navbar-branding/logo - hidden image tag & site name so things like Facebook to pick up, actual logo set via CSS for flexibility -->
+          <a class="navbar-brand" href="index.html" title="Home">
+            <p class="text-primary">
+              AONE CERAMICS
+            </p>
+          </a>
+          <div class="navbar-slogan">
+            Reflects
+            <br> Your Style...
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="navbar navbar-default">
+      <!--mobile collapse menu button-->
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+
+      <!--everything within this div is collapsed on mobile-->
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav" id="main-menu">
+          <li class="icon-link">
+            <a href="{{url_for('index')}}"><i class="fa fa-home"></i></a>
+          </li>
+
+          <li><a href="{{url_for('about')}}">About us</a></li>
+          <li class="dropdown dropdown-mm">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
+            <!-- Dropdown Menu -->
+            <ul class="dropdown-menu dropdown-menu-mm dropdown-menu-persist">
+              <li class="row">
+                <ul class="col-md-6">
+                  <li class="dropdown-header">Local</li>
+                  <li><a href="{{url_for('product1')}}">250x375mm(10x15)</a></li>
+                    <li><a href="#">300x300mm(12x12) MATCHING FLOOR</a></li>
+                  <li><a href="#">300x450mm(12x18)</a></li>
+                </ul>
+                <ul class="col-md-6">
+                  <li class="dropdown-header">International</li>
+                  <li><a href="#">250x375mm(10x15)</a></li>
+                  <li><a href="#">250x400mm(10x16)</a></li>
+                  <li><a href="#">300x300mm(12x12) MATCHING FLOOR</a></li>
+                  <li><a href="#">300x450mm(12x18)</a></li>
+                  <li><a href="#">300x600mm(12x24)</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="{{url_for('download')}}">Downloads</a></li>
+          <li><a href="{{url_for('admin')}}">Admin panel</a></li>
+          <li><a href="{{url_for('quotation')}}">Quotation</a></li>
+        </ul>
+      </div>
+        <!--/.navbar-collapse -->
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block about %}
+
+{% endblock %}
+
+{% block product1 %}
+
+{% endblock %}
+
+{% block download %}
+
+{% endblock %}
+
+{% block productlayout %}
+
+{% endblock %}
+
+{% block inquiry %}
+
+{% endblock %}
+
+{% block quotation%}
+
+    <div class="container">
+      <h2><b>Quotation Generator</b></h2>
+      {% if msg %}
+      {{msg}}
+      {% endif%}
+
+      <br>
+      <div class="row d-flex justify-content-center">
+        <div class="col-6 col-md-6">
+      <form class="well form-horizontal" method="POST" action="{{url_for('quotation')}}" enctype="multipart/form-data">
+         <fieldset>
+            <div class="form-group">
+               <label class="col-md-4 control-label">Tiles no.</label>
+               <div class="col-md-8 inputGroupContainer">
+                  <div class="input-group"><input id="tno" name="add" placeholder="Enter Product no." class="form-control" required="true" value="" type="text"></div>
+               </div>
+               
+               
+            </div>
+            <div class="form-group text-center">
+              <button type="submit" class="btn btn-primary" name="b"  >Add</button>
+              
+              <button type="button" class="btn btn-primary" name="get-quotation" onclick="getQuot()" >Get Quotation</button>
+            </div>
+         </fieldset>
+      </form>
+      
+      <form class="well form-horizontal" method="POST" action="{{url_for('quotation')}}" enctype="multipart/form-data"></form>
+      <button type="submit" class="btn btn-primary" name="b"  >Empty Cart</button>
+      <div value=1 name="empcart"></div>
+      </form>
+
+    </div>
+    <div class="col-6 col-md-6" id="temp">
+        <table class="table" id="myTable">
+          <tr>
+              <th>Sr_no.</th>
+              <th>Tiles no.</th>
+              <th>Product catagory</th>
+              <th>Sub catagory</th>
+              <th>Size</th>
+              <th>Design</th>
+              <th>APT</th>
+              <th>Quantity</th>
+              <th>Total</th>
+          </tr>
+          
+          
+          {% if data %}
+            
+          {% for row in data %}
+         
+          
+          
+          <tr>
+              <td>{{row[0]}}</td>
+              <td>{{row[1]}}</td>
+              <td>{{row[2]}}</td>
+              <td>{{row[3]}}</td>
+              <td></td>
+              <td>Anti Skid Floor</td>
+              <td>18</td>
+              <td>100</td>
+              <td>1800</td>
+          </tr>
+      
+          {% endfor%}
+        
+
+
+        
+          
+          {% endif%}
+
+        </table>
+      </div>
+  </div>
+</div>
+<script>
+
+    function getQuot(){
+    var doc = new jsPDF();
+    doc.autoTable({html: '#myTable'});
+    doc.save('table.pdf');
+  }
+</script>
+{% endblock%}
+
+{% block slider %}
+
+{% endblock %}
+
+{% block adminpanel %}
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
+
+{% block js %}
+    {{ super() }}
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+    {{super()}}
+{% endblock %}
+{% block nav %}
+    {{ super() }}
+{% endblock %}
+
+{% block carou%}
+
+{% endblock %}
+
+
+{% block about %}
+            <div class="jumbotron" align="center">
+                <h2>{{msg}}</h2>
+
+                <form action="{{url_for('updpassword')}}" method="post">
+                    <label for="un">Old Password:</label>
+                    <input type="password" name="oldpw" value="">
+                    <label for="pw">New Password:</label>
+                    <input type="password" name="newpw" value="">
+                    <label for="pw">Confirm Password:</label>
+                    <input type="password" name="confpw" value="">
+                    <input type="submit" name="submit" value="Submit">
+                </form>
+            </div>
+{% endblock %}
+
+{% block slider %}
+{% endblock %}
+
+
+{% block footer %}
+{{ super() }}
+{% endblock %}
